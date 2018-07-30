@@ -1,0 +1,17 @@
+Welcome to {{ project }}'s documentation!
+==========={{ project_underline }}=================
+
+.. toctree::
+   :maxdepth: {{ mastertocmaxdepth }}
+   :caption: Contents:
+
+   readme
+   changelog
+   authors
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
