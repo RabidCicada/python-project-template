@@ -11,23 +11,6 @@ Run bootstrap_project.sh and it will set up your project and run sphinx-quicksta
    cd dev
    ./bootstrap_project.sh
 
-You should place your python package/source under the src directory.
-
-**Please be aware:**
-
-We use a setup.cfg that is parsable by setuptools.  You MAY use pbr directives
-in there too but we intentionally use the setuptools directives. Don't be confused
-if you go read up on pbr.
-
-
-Edit the setup.cfg to set some basic properties:
-
-- PROJECT --> Your project name
-- PROJECTAUTHOR --> The Authors Name
-- PROJECTGITURL --> The URL of the repo
-- PROJECTURL --> The URL to associate with the project (public website likely if you have used it.  Same as PROJECTGITURL otherwise)
-- PROJECTDOCURL --> The URL of the documentation (readthedocs likely if you have used it.  Same as PROJECTGITURL otherwise)
-
 It will setup the appropriate directory structure:
 
 .. code-block:: bash
@@ -37,6 +20,31 @@ It will setup the appropriate directory structure:
         tests/
         src/
         dev/
+
+You should place your python package/source under the src directory.
+
+Edit the setup.cfg and this document to set some basic properties:
+
+.. note:: A simple replace-all-case-sensitive on the whole project would work
+
+- PROJECT --> Your project name
+- PROJECTAUTHOR --> The Authors Name
+- PROJECTGITURL --> The URL of the repo
+- PROJECTURL --> The URL to associate with the project (public website likely if you have used it.  Same as PROJECTGITURL otherwise)
+- PROJECTDOCURL --> The URL of the documentation (readthedocs likely if you have used it.  Same as PROJECTGITURL otherwise)
+
+When you are ready to remove all the unnecessary bootstrap code and git linkage just run:
+
+.. code-block:: bash
+
+   cd dev
+   ./bootstrap_project.sh stripbootstrap
+
+**Please be aware:**
+
+We use a setup.cfg that is parsable by setuptools.  You MAY use pbr directives
+in there too but we intentionally use the setuptools style/compatible directives. Don't be confused
+if you go read up on pbr.
 
 It uses pbr from the openstack project to automatically:
 
@@ -69,7 +77,7 @@ Checkout the code:
 
 .. code-block:: bash
 
-   git clone <url to your repo>
+   git clone PROJECTURL
 
 Install Dev Dependencies:
 
@@ -82,10 +90,12 @@ Install Dev Dependencies:
 To Generate the Docs
 ==========================
 
-Install Dev Dependencies then:
+.. note::  You will want to replace the placeholder strings before you generate documentation
 
 Sphinx will integrate Authors and Changelog if they have already been generated
 by pbr.
+
+Install Dev Dependencies then:
 
 .. code-block:: bash
 
